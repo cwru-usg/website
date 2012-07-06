@@ -1,0 +1,53 @@
+<h2>Manage Pages</h2>
+<p>The page management page allows you to organize, create, retire, and edit the pages that make up the bulk of the USG website.  Additionally, you can track the changes pages have undergone using the history tool.</p>
+
+<h3>Newest Active Pages - <%= link_to 'See all', active_admin_pages_path %></h3>
+<table>
+  <tbody>
+    <tr>
+      <th>Title</th>
+      <th>URL</th>
+      <th style="width:30px">Edit</th>
+    </tr>
+    <% @archived_pages.each do |page| %>
+    <tr>
+      <td><%= page.title %></td>
+      <td><%= link_to page_path(page) %></td>
+      <td><%= link_to image_tag('writing_12.png'), '/editor'+page_path(page) %> <%= link_to image_tag('gear_12.png'), edit_admin_page_path(page) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>Recently Archived Pages - <%= link_to 'See all', archived_admin_pages_path %></h3>
+<table>
+  <tbody>
+    <tr>
+      <th>Title</th>
+      <th>URL</th>
+      <th style="width:30px">Edit</th>
+    </tr>
+    <% @pages.each do |page| %>
+    <tr>
+      <td><%= page.title %></td>
+      <td><%= link_to page_path(page) %></td>
+      <td><%= link_to image_tag('writing_12.png'), '/editor'+page_path(page) %> <%= link_to image_tag('gear_12.png'), edit_admin_page_path(page) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% content_for :right do %>
+  <h3>Create a New Page</h3>
+  <%= form_for [:admin, @new_page] do |f| %>
+    <p><%= f.text_field :title, :placeholder => 'Title', :style => 'width:230px' %></p>
+    <p><%= f.select :parent_id, nested_set_options(Page, @new_page) {|i| truncate("#{'-'*i.level} #{i.title}")}, :include_blank => "Parent (none)" %></p>
+    <p><%= f.submit %></p>
+  <% end %>
+
+  <h3>Managing Pages</h3>
+  <p><strong>Active pages</strong> lists all of the currently active pages available on the website.</p>
+  <p><strong>Archived pages</strong> lists pages that have been <strong>retired</strong> and are no longer available on the website.</p>
+  <p><strong>Editing</strong> <%= image_tag 'writing_12.png' %> a page will take you to a page editing tool.  Changes cannot be undone after saving a page, but are chronicled in the page's <strong>history</strong></p>
+  <p><strong>Changing a title</strong> <%= image_tag 'gear_12.png' %> will update the title displayed at the top of the page and the page's URL.  Old URLs will redirect to the page and notify the reader of the URL change.</p>
+<% end %>

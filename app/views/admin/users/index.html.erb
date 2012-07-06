@@ -1,0 +1,49 @@
+<h2>Manage Users</h2>
+<p>The user management page allows you to control who has access to the administrative functions of the USG website.  All users listed here have the ability to add and delete pages, new articles, the content of the homepage, etc.</p>
+
+<h3>All Users</h3>
+<table>
+  <tbody>
+    <tr>
+      <th>Network ID</th>
+      <th>Name</th>
+      <th>Added</th>
+      <th>Last Login</th>
+      <th></th>
+    </tr>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= user.username %></td>
+      <td><%= user.name %></td>
+      <td><%= user.created_at %></td>
+      <td><%= user.last_sign_in_at %></td>
+      <td><%= link_to "Delete", admin_user_path(user), :method => :delete %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>Add User</h3>
+<table>
+  <tbody>
+    <tr>
+      <th>Network ID</th>
+      <th>Name</th>
+      <th></th>
+    </tr>
+    <%= form_for [:admin, @user] do |f| %>
+    <tr>
+      <td><%= f.text_field :username %></td>
+      <td><%= f.text_field :name %></td>
+      <td><%= f.submit %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% content_for :right do %>
+  <h3>Managing Users</h3>
+  <p><strong>All Users</strong> lists all people who currently have permission to edit the website.</p>
+  <p><strong>Deleting</strong> a user revoke's his or her access to edit the website but does not remove that user's edits.</p>
+  <p><strong>Adding</strong> a user gives them immediate access to the website administrative functions.</p>
+<% end %>

@@ -1,0 +1,15 @@
+<header id="header">
+  <div id="container">
+    <div id="navigation">
+      <ul>
+      <% if user_signed_in? %>
+        <li><i>Signed in as <strong><%= current_user.name %></strong></i></li>
+        <li><%= link_to "Administration", "/admin" %></li>
+      <% end %>
+        <li><%= link_to "Home", root_url %></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Resources</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
