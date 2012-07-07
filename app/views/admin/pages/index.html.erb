@@ -1,4 +1,7 @@
 <h2>Manage Pages</h2>
+<div id='breadcrumbs'>
+  <%= link_to 'Administration', admin_path %> > <strong>Manage Pages</strong>
+</div>
 <p>The page management page allows you to organize, create, retire, and edit the pages that make up the bulk of the USG website.  Additionally, you can track the changes pages have undergone using the history tool.</p>
 
 <h3>Newest Active Pages - <%= link_to 'See all', active_admin_pages_path %></h3>
@@ -12,7 +15,7 @@
     <% @archived_pages.each do |page| %>
     <tr>
       <td><%= page.title %></td>
-      <td><%= link_to page_path(page) %></td>
+      <td><%= link_to page_path(page), page %></td>
       <td><%= link_to image_tag('writing_12.png'), '/editor'+page_path(page) %> <%= link_to image_tag('gear_12.png'), edit_admin_page_path(page) %></td>
     </tr>
     <% end %>
@@ -40,7 +43,7 @@
 <% content_for :right do %>
   <h3>Create a New Page</h3>
   <%= form_for [:admin, @new_page] do |f| %>
-    <p><%= f.text_field :title, :placeholder => 'Title', :style => 'width:230px' %></p>
+    <p><%= f.text_field :title, :placeholder => 'Title', :style => 'width:210px' %></p>
     <p><%= f.select :parent_id, nested_set_options(Page, @new_page) {|i| truncate("#{'-'*i.level} #{i.title}")}, :include_blank => "Parent (none)" %></p>
     <p><%= f.submit %></p>
   <% end %>

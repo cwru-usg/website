@@ -10,7 +10,7 @@ header, footer {
 }
 
 #container #right {
-  width: 250px;
+  width: 230px;
   padding: 6px 14px;
   margin: 46px 0px;
   float: right;
@@ -55,4 +55,24 @@ header, footer {
 
 #user_name {
   width: 260px;
+}
+
+input.wide {
+  width: 420px;
+  float: right;
+}
+
+input.wide_submit {
+  margin-top: 6px;
+  margin-left: 10px;
+}
+
+label {
+  display: block;
+  float: left;
+  width: 94px;
+  padding: 6px;
+  text-align: right;
+  font-weight: 300;
+  font-size: 1.2em;
 }

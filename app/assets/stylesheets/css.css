@@ -1,3 +1,7 @@
+/*
+ *   Global Structure --------------------------------------------------------------------
+ */
+
 body, html {
   margin: 0;
   font-size: 12px;
@@ -9,11 +13,6 @@ header, footer {
   display: block;
   background: #0a304e;
   color: #f2f2f2;
-}
-
-h1 {
-  font-family: 'Habibi', serif;
-  font-size: 2.6em;
 }
 
 #container {
@@ -82,7 +81,20 @@ h1 {
   margin-left: 40px;
   display: block;
   height: 30px;
-}   
+}
+
+/*
+ *   Headers and titles ------------------------------------------------------------------
+ */
+ 
+h1 {
+  font-family: 'Habibi', serif;
+  font-size: 2.6em;
+}
+
+h2 span.subheading {
+  font-weight: normal;
+}
 
 #logo {
   width: 100%;
@@ -109,6 +121,22 @@ h1 {
   border: none;
 }
 
+/*
+ *   Special formatting ------------------------------------------------------------------
+ */
+
+#flash {
+  width:812px;
+  padding: 13px;
+  margin: 20px 0;
+  border: 1px solid #666;
+  background: rgba(150,150,150,.3);
+}  
+
+/*
+ *   Tables ------------------------------------------------------------------------------
+ */
+
 table {
   border: 1px solid #666;
   border-collapse: collapse;
@@ -124,6 +152,15 @@ table th {
 table td {
   border: 1px solid #666;
   padding: 8px;
+}
+
+/*
+ *   Forms -------------------------------------------------------------------------------
+ */
+ 
+p.form {
+  width: 100%;
+  overflow: hidden;
 }
 
 input {

@@ -13,16 +13,21 @@ class Admin::PagesController < Admin::AdminController
     @pages = Page.archived
   end
   
-  def show
+  def edit
     @page = Page.find(params[:id])
   end
   
-  def edit
+  def show
     @page = Page.find(params[:id])
   end
   
   def update
     @page = Page.find(params[:id])
+    if @page.update_attributes(params[:page])
+      redirect_to edit_admin_page_path(@page)
+    else
+      render :action => 'edit'
+    end
   end
   
   def create

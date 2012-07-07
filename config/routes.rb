@@ -18,7 +18,8 @@ Usg::Application.routes.draw do
     resources :users
   end
   
-  resources :pages, :only => [:show, :update]
+  match ':id', :as => :page, :via => :get, :controller => :pages, :action => :show
+  match ':id', :via => :put, :controller => :pages, :action => :update
 
   root :to => 'home#index'
 

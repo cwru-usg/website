@@ -1,0 +1,4 @@
+# :title: Undergraduate Student Government Website
+#
+# :section: Related Links
+# http://stackoverflow.com/questions/11355214/friendly-id-update-slug-with-history
