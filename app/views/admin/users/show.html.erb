@@ -1,0 +1,10 @@
+<h2>Manage User: <span class='subheading'><%= @user.name %></span></h2>
+<div id='breadcrumbs'>
+  <%= link_to 'Administration', admin_path %> > <%= link_to 'Manage Users', admin_users_path %> > <strong><%= @user.name %> - <%= @user.username %></strong>
+</div>
+<h3>User History</h3>
+
+<% content_for :right do %>
+  <h3>User History</h3>
+  
+<% end %>

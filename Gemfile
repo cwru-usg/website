@@ -16,9 +16,20 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+# Devise manages authentication through CAS
 gem 'devise'
 gem 'devise_cas_authenticatable'
+
+# FriendlyId allows the use of human-readable urls for pages
 gem 'friendly_id'
+
+# Mercury is an easy to use HTML editor for pages
 gem 'mercury-rails'
 gem 'paperclip'
+
+# Awesome nested set allows pages to be organized
 gem 'awesome_nested_set'
+
+# Audited tracks changes to models so that you can see who is up to what
+gem 'audited-activerecord'

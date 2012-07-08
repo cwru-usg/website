@@ -1,7 +1,11 @@
 class Page < ActiveRecord::Base
+  # FriendlyId adds human readable urls
   extend FriendlyId
   friendly_id :slug_for_url, :use => [:slugged, :history]
+  # Acts as nested set adds organization
   acts_as_nested_set
+  # Audited adds tracking
+  audited
   
   attr_accessible :title, :content, :parent_id, :active, :archived_on, :url_seed
   

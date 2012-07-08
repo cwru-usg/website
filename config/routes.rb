@@ -15,7 +15,7 @@ Usg::Application.routes.draw do
         get 'archived'
       end
     end
-    resources :users
+    resources :users, :only => [:index, :show, :create, :destroy]
   end
   
   match ':id', :as => :page, :via => :get, :controller => :pages, :action => :show
