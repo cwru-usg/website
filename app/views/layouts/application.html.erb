@@ -37,22 +37,6 @@
     </div>
     <div class="body-container-push"></div>
   </div>
-  <footer id="footer">
-    <div id="container">
-      <div class="footer-left">
-        The <strong>USG</strong> is a member of the <a href="#">Student
-          Executive Council</a> at
-        <a href="http://www.case.edu">Case Western Reserve University</a>
-      </div>
-      <div class="footer-right">
-        <% if user_signed_in? %>
-          Logged in as <%= current_user.username %>.
-          <%=link_to "Log Out", destroy_user_session_url %>
-        <% else %>
-          <%=link_to "Log In", user_session_url %>
-        <% end %>
-      </div>
-    </div>
-  </footer>
+  <%=render "layout_partials/footer" %>
 </body>
 </html>

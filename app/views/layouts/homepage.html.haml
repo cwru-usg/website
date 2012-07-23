@@ -1,0 +1,41 @@
+!!! 5
+%html{:lang => "en"}
+  %head
+    %link{ :href=> 'http://fonts.googleapis.com/css?family=Habibi|Open+Sans:400,300,700', :rel=>'stylesheet', :type=>'text/css'}
+    =stylesheet_link_tag    "application", :media => "all"
+    =javascript_include_tag "application"
+    =csrf_meta_tags
+    :javascript
+      $(function(){
+        $("body").noisy({
+          opacity: 0.07
+        });
+      });
+  %body.homepage
+    .body-container
+      %header#header
+        #container
+          #logo
+            =image_tag "logo.png", :class=>"logo"
+            %h1 Undergraduate Student Government
+            %ul
+              %li
+                %a{:href=>"#"} Feedback Form →
+              %li
+                %a{:href=>"#"} Submit a Disbursement →
+              %li
+                %a{:href=>"#"} Search →
+          #navigation
+            %ul
+              -if current_user_is_admin?
+                %li= link_to "Administration", "/admin"
+              %li= link_to "Home", root_url
+              %li= link_to "About Us", "#"
+              %li= link_to "Resources", "#"
+          .slider-wrapper
+            #slider.nivo-slider
+              =image_tag "http://placekitten.com/500/200", :style => "width: 520px; height: 279px;"
+      #container.content
+        =yield
+      .body-container-push
+    =render "layout_partials/footer"

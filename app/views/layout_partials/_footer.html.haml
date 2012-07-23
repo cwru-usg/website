@@ -1,0 +1,16 @@
+%footer#footer
+  #container
+    .footer-left
+      The
+      %strong USG
+      is a member of the
+      =link_to "Student Executive Council", "#"
+      at
+      =link_to "Case Western Reserve University", "http://case.edu"
+    .footer-right
+      -if user_signed_in?
+        Logged in as
+        = current_user.username
+        =link_to "Log Out", destroy_user_session_url
+      -else
+        =link_to "Log In", user_session_url

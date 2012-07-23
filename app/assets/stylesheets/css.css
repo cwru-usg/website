@@ -19,7 +19,7 @@ header, footer {
 #container {
   width: 840px;
   margin: auto;
-  overflow: hidden;
+  overflow: visible;
   clear: both;
 }
 
@@ -42,6 +42,7 @@ header, footer {
   height: 60px;
   box-shadow: inset 0 -3px 8px rgba(0, 0, 0, 0.25);
   z-index: 1;
+  overflow: visible;
 }
 
 .body-container {
@@ -101,6 +102,49 @@ header, footer {
 }
 
 /*
+ * Homepage Only --------------------------------------------------------------
+ */
+#header #logo {
+  height: 360px;
+  float: left;
+  width: 300px;
+  position: relative;
+  right: 23px;
+}
+#header #logo img {
+  margin: 20px 0 0 50px;
+}
+body.homepage #header h1 {
+  color: #000;
+  font-size: 24px;
+  font-weight: 400;
+  text-align: center;
+  margin: 20px 0;
+  border-top: 1px dashed #ccc;
+  border-bottom: 1px dashed #ccc;
+}
+#header #logo ul {
+  clear: both;
+}
+#header #logo ul li {
+  text-align: right;
+}
+#header #logo ul li a {
+  color: #0A304E;
+  font-size: 20px;
+  font-style: italic;
+  text-decoration: none;
+}
+.slider-wrapper {
+  width: 520px;
+  height: 279px;
+  position: relative;
+  top: 55px;
+  float: right;
+}
+
+
+/*
  *   Headers and titles ------------------------------------------------------------------
  */
  
@@ -120,7 +164,7 @@ h2 span.subheading {
 
 #logo img {
   float: left;
-  margin-top: -40px;
+  margin: -40px 0 0 20px;
   z-index: 3;
 }
 
