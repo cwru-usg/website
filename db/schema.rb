@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120708020046) do
+ActiveRecord::Schema.define(:version => 20120723051903) do
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
@@ -71,15 +71,16 @@ ActiveRecord::Schema.define(:version => 20120708020046) do
   add_index "pages", ["slug"], :name => "index_pages_on_slug", :unique => true
 
   create_table "users", :force => true do |t|
-    t.string   "username",                          :null => false
+    t.string   "username",                              :null => false
     t.integer  "sign_in_count",      :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "name"
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+    t.boolean  "is_admin",           :default => false
   end
 
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true

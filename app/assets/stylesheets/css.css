@@ -58,6 +58,14 @@ header, footer {
   font-weight: 700;
 }
 
+#footer .footer-left {
+  float: left;
+}
+
+#footer .footer-right {
+  float: right;
+}
+
 #navigation {
   display: inline;
   float: right;

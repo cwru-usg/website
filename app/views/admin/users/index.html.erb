@@ -9,14 +9,16 @@
       <th>Name</th>
       <th>Added</th>
       <th>Last Login</th>
+      <th>Admin?</th>
       <th></th>
     </tr>
     <% @users.each do |user| %>
     <tr>
       <td><%= link_to user.username, admin_user_path(user) %></td>
       <td><%= user.name %></td>
-      <td><%= user.created_at %></td>
-      <td><%= user.last_sign_in_at %></td>
+      <td><%= distance_of_time_in_words_to_now(user.created_at) %> ago</td>
+      <td><%= distance_of_time_in_words_to_now(user.last_sign_in_at) %> ago</td>
+      <td><%= user.is_admin? %></td>
       <td><%= link_to "Delete", admin_user_path(user), :method => :delete %></td>
     </tr>
     <% end %>
