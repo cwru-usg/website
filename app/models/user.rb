@@ -3,6 +3,9 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :cas_authenticatable, :trackable, :authentication_keys => [:username]
+  
+  # Audited adds tracking
+  audited
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :username, :name

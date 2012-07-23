@@ -2,7 +2,63 @@
 <div id='breadcrumbs'>
   <%= link_to 'Administration', admin_path %> > <%= link_to 'Manage Pages', admin_pages_path %> > <strong><%= truncate(@page.title) %></strong>
 </div>
-<h3>Page History</h3>
+<h3>Organization</h3>
+<h4>Parent</h4>
+<h4>Children</h4>
+<% if @page.descendants %>
+<table>
+  <tbody>
+    <tr>
+      <th>Title</th>
+      <th>URL</th>
+      <th style="width:45px">Edit</th>
+    </tr>
+    <% @page.descendants.each do |page| %>
+    <tr>
+      <td><%= page.title %></td>
+      <td><%= link_to page_path(page) %></td>
+      <td><%= link_to image_tag('writing_12.png'), '/editor'+page_path(page) %> <%= link_to image_tag('gear_12.png'), edit_admin_page_path(page) %> <%= link_to image_tag('notebook_12.png'), admin_page_path(page) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<% else %>
+<p>This page does not have any children.</p>
+<% end %>
+<h3>History</h3>
+<table>
+  <tbody>
+    <tr>
+      <th>Date</th>
+      <th>User</th>
+      <th>Action</th>
+      <th>Fields</th>
+      <th>Details</th>
+    </tr>
+    <% @page.audits.each do |audit| %>
+    <tr>
+      <td><%=l audit.created_at, :format => :long %></td>
+      <td><%= link_to audit.user.name, admin_user_path(audit.user) %> (<%= audit.user.username %>)</td>
+      <td><%= audit.action.capitalize %></td>
+      <td>
+        <%= audit.audited_changes.keys.join(', ').capitalize %>
+      </td>
+      <td></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<h3>Page URLS</h3>
-<%= @page.slugs %>
+<% content_for :right do %>
+  <h3>User</h3>
+  <p>The <strong>user</strong> column shows the user who is responsible for that part of history.</p>
+  <h3>Action</h3>
+  <p>The <strong>action</strong> can be either <i>Create</i> or <i>Update</i>.  The <i>create</i> action occurs once when the page is first created.  The <i>update</i> action occurs whenever some part of the page is changed.
+  <h3>Fields</h3>
+  <p>The <strong>fields</strong> column shows you what parts of a page were effected.</p>
+  <ul>
+    <li><i>Title</i> is the title of the page.</li>
+    <li><i>Content</i> is the body of the page.</li>
+    <li>INCOMPLETE...</li>
+  </ul>
+<% end %>

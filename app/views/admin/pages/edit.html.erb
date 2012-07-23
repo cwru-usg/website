@@ -5,17 +5,37 @@
 
 <%= form_for [:admin, @page] do |f| %>
   <h3>Change Title or Set a Custom URL</h3>
-  <p>The URL is based on the title of the page by default.  Adding text as a URL seed will override the title when setting the URL.  Because all URLs must be unique, if a URL is already taken by another page, the URL generated will have a suffix.</p>
-  <p>You can see all URLs currently associated with a page by viewing the <%= link_to 'page history', admin_page_path(@page) %>.</p>
+  <p>The URL is based on the title of the page by default.  Adding text as a URL seed will override the title when setting the URL.</p>
   <p class='form'><%= f.label :title %><%= f.text_field :title, :class => 'wide' %></p>
   <p class='form'><%= f.label :url_seed, 'URL Seed' %><%= f.text_field :url_seed, :class => 'wide' %></p>
-  <p class='form'><%= f.label :submit, 'Do it!' %><%= f.submit 'Submit', :class => 'wide_submit' %> <%= link_to 'Go back', admin_pages_path %></p>
+  <p class='form'><%= f.label :submit, 'Do it!' %><%= f.submit 'Submit', :class => 'wide_submit' %> or <%= link_to 'Return to page details', admin_page_path(@page) %></p>
 <% end %>
 
+<h3>Manage Page URLs</h3>
+<p>All pages have at least one human-friendly URL.  When you change the title of a page or submit a new URL seed, the system preserves any old URLs and redirects them to the newest URL.  You can remove old URLs below if you would like to stop them from redirecting or use them elsewhere.</p>
+<table>
+  <tbody>
+    <tr>
+      <th>Status</th>
+      <th>URL</th>
+      <th style="width:30px">Edit</th>
+    </tr>
+    <% @page.slugs.each do |slug| %>
+    <tr>
+      <td>
+        <%= @page.friendly_id == slug.slug ? 'Current' : 'Redirecting' %>
+      </td>
+      <td><%= link_to '/'+slug.slug, @page %></td>
+      <td>
+        <%= @page.friendly_id == slug.slug ? 'Locked' : link_to('Delete', admin_slug_path(slug.id), :method => :delete) %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <% content_for :right do %>
-  <h3>Managing a Page's Title and URL</h3>
+  <h3>Changing a Page's Title and URL</h3>
   <p>Pages are available at a human-friendly URL that is based on it's title by default.  However, you can submit an alternate <strong>URL seed</strong> which will then be used to generate a unique URL for the page.</p>
   <p>When you change a page's title or submit a new URL seed, the page's URL will immediately change and any old URLs will redirect to the new page.</p>
-  <h3>URL Seed</h3>
-  <p>The <strong>URL Seed</strong> can be any text in a form similar to how you would like the URL to appear.  Any non-URL-friendly characters will be replaced and the URL will be suffixed if it isn't unique.</p>
 <% end %>

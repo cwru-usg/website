@@ -10,8 +10,11 @@ class Admin::UsersController < Admin::AdminController
   
   def create
     @user = User.new(params[:user])
-    @user.save
-    redirect_to admin_users_url
+    if @user.save
+      redirect_to admin_users_url
+    else
+      render :action => 'index'
+    end
   end
   
   def destroy

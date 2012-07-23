@@ -25,8 +25,4 @@ class Page < ActiveRecord::Base
   def active?
     self.active
   end
-  
-  def archived?
-    !self.active
-  end
 end

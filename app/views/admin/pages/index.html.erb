@@ -10,13 +10,13 @@
     <tr>
       <th>Title</th>
       <th>URL</th>
-      <th style="width:30px">Edit</th>
+      <th style="width:45px">Edit</th>
     </tr>
-    <% @archived_pages.each do |page| %>
+    <% @pages.each do |page| %>
     <tr>
       <td><%= page.title %></td>
       <td><%= link_to page_path(page), page %></td>
-      <td><%= link_to image_tag('writing_12.png'), '/editor'+page_path(page) %> <%= link_to image_tag('gear_12.png'), edit_admin_page_path(page) %></td>
+      <td><%= link_to image_tag('writing_12.png'), '/editor'+page_path(page) %> <%= link_to image_tag('gear_12.png'), edit_admin_page_path(page) %> <%= link_to image_tag('notebook_12.png'), admin_page_path(page) %></td>
     </tr>
     <% end %>
   </tbody>
@@ -28,13 +28,13 @@
     <tr>
       <th>Title</th>
       <th>URL</th>
-      <th style="width:30px">Edit</th>
+      <th style="width:45px">Edit</th>
     </tr>
-    <% @pages.each do |page| %>
+    <% @archived_pages.each do |page| %>
     <tr>
       <td><%= page.title %></td>
       <td><%= link_to page_path(page) %></td>
-      <td><%= link_to image_tag('writing_12.png'), '/editor'+page_path(page) %> <%= link_to image_tag('gear_12.png'), edit_admin_page_path(page) %></td>
+      <td><%= link_to image_tag('writing_12.png'), '/editor'+page_path(page) %> <%= link_to image_tag('gear_12.png'), edit_admin_page_path(page) %> <%= link_to image_tag('notebook_12.png'), admin_page_path(page) %></td>
     </tr>
     <% end %>
   </tbody>
@@ -50,7 +50,9 @@
 
   <h3>Managing Pages</h3>
   <p><strong>Active pages</strong> lists all of the currently active pages available on the website.</p>
-  <p><strong>Archived pages</strong> lists pages that have been <strong>retired</strong> and are no longer available on the website.</p>
-  <p><strong>Editing</strong> <%= image_tag 'writing_12.png' %> a page will take you to a page editing tool.  Changes cannot be undone after saving a page, but are chronicled in the page's <strong>history</strong></p>
-  <p><strong>Changing a title</strong> <%= image_tag 'gear_12.png' %> will update the title displayed at the top of the page and the page's URL.  Old URLs will redirect to the page and notify the reader of the URL change.</p>
+  <p><strong>Archived pages</strong> lists pages that have been retired and are no longer available on the website.</p>
+  <h3>Legend</h3>
+  <p><%= image_tag 'writing_12.png' %> - Edit page content</p>
+  <p><%= image_tag 'gear_12.png' %> - Edit the page title and URL</p>
+  <p><%= image_tag 'notebook_12.png' %> - View page details</p>
 <% end %>

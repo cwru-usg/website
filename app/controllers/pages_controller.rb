@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   before_filter :authenticate_user!, :only => [:update]
   
   def show
-
+    raise ActionController::RoutingError.new('Page is not active') unless @page.active? or user_signed_in?
   end
   
   # Mercury Editor is updating a page

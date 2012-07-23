@@ -33,8 +33,10 @@ class Admin::PagesController < Admin::AdminController
   def create
     @page = Page.new(params[:page])
     @page.content = "Add your content here :)"
-    @page.save!
-    
-    redirect_to '/editor' + page_path(@page)
+    if @page.save
+      redirect_to '/editor' + page_path(@page)
+    else
+      render :action => 'index'
+    end
   end
 end
