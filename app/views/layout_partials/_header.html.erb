@@ -2,8 +2,7 @@
   <div id="container">
     <div id="navigation">
       <ul>
-      <% if user_signed_in? %>
-        <li><i>Signed in as <strong><%= current_user.name %></strong></i></li>
+      <% if current_user_is_admin? %>
         <li><%= link_to "Administration", "/admin" %></li>
       <% end %>
         <li><%= link_to "Home", root_url %></li>

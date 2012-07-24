@@ -28,6 +28,6 @@ Devise.setup do |config|
   config.strip_whitespace_keys = [ :username ]
 
   config.cas_base_url = "https://login.case.edu/cas"
-  config.cas_create_user = false 
+  config.cas_create_user = true
 
 end

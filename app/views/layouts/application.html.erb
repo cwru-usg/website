@@ -17,27 +17,26 @@
   </script>
 </head>
 <body>
-  <%= render "layout_partials/header" %>
-  <div id="container" class="logo">
-    <div id="logo">
-      <%= image_tag "logo.png" %>
-      <h1><a href="#">Undergraduate Student Government</a>
+  <div class="body-container">
+    <%= render "layout_partials/header" %>
+    <div id="container" class="logo">
+      <div id="logo">
+        <%= image_tag "logo.png" %>
+        <h1><a href="#">Undergraduate Student Government</a>
+      </div>
     </div>
-  </div>
-  <% if !flash.empty? %>
-    <div id="container">
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, raw(msg), :id => "flash", :class => "#{name}" if msg.is_a?(String) %>
+    <% if !flash.empty? %>
+      <div id="container">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, raw(msg), :id => "flash", :class => "#{name}" if msg.is_a?(String) %>
+      <% end %>
+      </div>
     <% end %>
-    </div>
-  <% end %>
-  <div id="container">
-    <%= yield %>
-  </div>
-  <footer id="footer">
     <div id="container">
-      <p>The <strong>USG</strong> is a member of the <a href="#">Student Executive Council</a> at <a href="http://www.case.edu">Case Western Reserve University</a></p>
+      <%= yield %>
     </div>
-  </footer>
+    <div class="body-container-push"></div>
+  </div>
+  <%=render "layout_partials/footer" %>
 </body>
 </html>
