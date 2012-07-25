@@ -8,7 +8,8 @@
       %header#header
         #container
           #logo
-            =image_tag "logo.png", :class=>"logo"
+            =link_to root_url do
+              =image_tag "logo.png", :class=>"logo"
             %h1 Undergraduate Student Government
             %ul
               %li

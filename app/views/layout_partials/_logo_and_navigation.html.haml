@@ -4,7 +4,8 @@
       =render "layout_partials/navigation"
 #container.logo
   #logo
-    =image_tag "logo.png"
+    =link_to root_url do
+      =image_tag "logo.png"
     %h1
       =link_to "Undergraduate Student Government", root_url
 -if !flash.empty?
