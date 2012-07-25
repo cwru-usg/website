@@ -1,0 +1,36 @@
+!!!
+%html
+  %head
+    %title USG Admin Interface
+    =render "layout_partials/header"
+    =stylesheet_link_tag "admin", :media => "all"
+  %body
+    .body-container
+      %header#header
+        #container
+          #navigation
+            =render "layout_partials/navigation"
+      #container.logo
+        #logo
+          =image_tag "logo.png"
+          %h1
+            =link_to "Undergraduate Student Government", root_url
+      -if !flash.empty?
+        #container
+          -flash.each do |name, msg|
+            - if msg.is_a?(String)
+              #flash(class=name)= raw(msg)
+      #container
+        #admin_navigation
+          %ul
+            %li= link_to "Home", "/admin"
+            %li= link_to "Users", admin_users_url
+            %li= link_to "Pages", admin_pages_url
+      #container
+        -if content_for?(:right)
+          #left= yield
+          #right= yield(:right)
+        -else
+          =yield
+      .body-container-push
+    =render "layout_partials/footer"
