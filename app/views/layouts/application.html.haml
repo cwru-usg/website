@@ -1,0 +1,12 @@
+!!!
+%html
+  %head
+    %title USG
+    =render "layout_partials/header"
+  %body
+    .body-container
+      =render "layout_partials/logo_and_navigation"
+      #container
+        =yield
+      .body-container-push
+    =render "layout_partials/footer"

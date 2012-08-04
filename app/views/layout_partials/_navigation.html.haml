@@ -1,0 +1,6 @@
+%ul
+  -if current_user_is_admin?
+    %li= link_to "Administration", "/admin"
+  %li= link_to "Home", root_url
+  %li= link_to "About USG", "/pages/about-usg"
+  %li= link_to "Resources", "/pages/resources"

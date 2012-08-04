@@ -6,7 +6,7 @@ body, html {
   margin: 0;
   font-size: 12px;
   font-family: 'Open Sans', sans-serif;
-  background-color: #F2F2F2;
+  background: url(/assets/bg_light_toast.png) #F2F2F2;
   height: 100%;
 }
 
