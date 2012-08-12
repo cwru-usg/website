@@ -13,6 +13,7 @@
             %li= link_to "Home", "/admin"
             %li= link_to "Users", admin_users_url
             %li= link_to "Pages", admin_pages_url
+            %li= link_to "Navigation", admin_nav_items_url
       #container
         -if content_for?(:right)
           #left= yield

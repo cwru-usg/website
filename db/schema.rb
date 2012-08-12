@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120723051903) do
+ActiveRecord::Schema.define(:version => 20120805212553) do
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
@@ -52,6 +52,17 @@ ActiveRecord::Schema.define(:version => 20120723051903) do
     t.datetime "image_updated_at"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+  end
+
+  create_table "nav_items", :force => true do |t|
+    t.string   "title"
+    t.string   "url"
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
+    t.integer  "depth"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "pages", :force => true do |t|
