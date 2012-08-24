@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
   before_filter :fetch_nav_items
 
   def fetch_nav_items
-  	@nav_items = NavItem.roots
+  	@nav_items = NavItem.order("weight ASC")
   end
 end

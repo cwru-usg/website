@@ -3,6 +3,7 @@ class CreateNavItems < ActiveRecord::Migration
     create_table :nav_items do |t|
       t.string :title
       t.string :url
+      t.integer :weight, :default => 0
 
       t.integer :parent_id
       t.integer :lft

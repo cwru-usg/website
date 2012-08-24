@@ -3,3 +3,34 @@
   <%= link_to 'Administration', admin_path %> > <strong>Manage Navigation Items</strong>
 </div>
 <p>The navigation item management page allows you to change the items that appear in the top right of the website.  There is no limit to the number of links you can add, but you will eventually overload the layout and the user.  <strong>Fewer is better.</strong></p>
+
+<h3>Active Links</h3>
+<table>
+  <tbody>
+    <tr>
+      <th>Title</th>
+      <th>URL</th>
+      <th>Weight</th>
+      <th></th>
+    </tr>
+    <% @nav_items.each do |nav_item| %>
+    <tr>
+      <td><%= nav_item.title %></td>
+      <td><%= link_to nav_item.url, nav_item.url %></td>
+      <td><%= nav_item.weight %></td>
+      <td><%= link_to 'Delete', admin_nav_item_path(nav_item), :method => :delete %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% content_for :right do %>
+  <h3>Create a New Link</h3>
+  <%= form_for [:admin, @new_nav_item] do |f| %>
+    <p><%= f.text_field :title, :placeholder => 'Title', :style => 'width:210px' %></p>
+    <p><%= f.text_field :url, :placeholder => '/path-to-your-page', :style => 'width:210px' %></p>
+    <p><%= f.select :parent_id, nested_set_options(NavItem, @new_nav_item) {|i| truncate("#{'-'*i.level} #{i.title}")}, :include_blank => "Parent (none)" %></p>
+    <p><%= f.select :weight, @nav_item_weight_options %></p>
+    <p><%= f.submit 'Create Link' %></p>
+  <% end %>
+<% end %>

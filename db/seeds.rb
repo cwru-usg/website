@@ -12,6 +12,6 @@ p = Page.create(:title => "About USG", :content => "Default content of the defau
 Page.create(:title => "Resources", :content => "This is a top level page with no children", :active => true)
 
 # NavItems
-NavItem.create(:title => 'Home', :url => "/")
-NavItem.create(:title => 'About Us', :url => "/about-usg")
-NavItem.create(:title => 'Resources', :url => "/resources")
+NavItem.create(:title => 'Home', :url => "/", :weight => 0)
+NavItem.create(:title => 'About Us', :url => "/about-usg", :weight => 1)
+NavItem.create(:title => 'Resources', :url => "/resources", :weight => 2)

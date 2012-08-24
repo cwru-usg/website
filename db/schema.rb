@@ -57,12 +57,13 @@ ActiveRecord::Schema.define(:version => 20120805212553) do
   create_table "nav_items", :force => true do |t|
     t.string   "title"
     t.string   "url"
+    t.integer  "weight",     :default => 0
     t.integer  "parent_id"
     t.integer  "lft"
     t.integer  "rgt"
     t.integer  "depth"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "pages", :force => true do |t|
