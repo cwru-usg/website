@@ -6,11 +6,11 @@ class Admin::PagesController < Admin::AdminController
   end
   
   def active
-    @pages = Page.all
+    @pages = Page.now_active
   end
   
   def archived
-    @pages = Page.archived
+    @pages = Page.now_archived
   end
   
   def edit

@@ -1,0 +1,5 @@
+<tr>
+  <td><%= page.title %></td>
+  <td><%= link_to page_path(page), page %></td>
+  <td><%= link_to image_tag('writing_12.png'), '/editor'+page_path(page) %> <%= link_to image_tag('gear_12.png'), edit_admin_page_path(page) %> <%= link_to image_tag('notebook_12.png'), admin_page_path(page) %></td>
+</tr>

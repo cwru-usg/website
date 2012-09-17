@@ -53,6 +53,10 @@ header, footer {
   height: 68px;
 }
 
+#content {
+  padding-top: 18px;
+}
+
 #footer {
   height: 28px;
   font-size: .8em;
@@ -197,7 +201,6 @@ h2 span.subheading {
 /*
  *   Tables ------------------------------------------------------------------------------
  */
-
 table {
   border: 1px solid #666;
   border-collapse: collapse;
@@ -218,7 +221,6 @@ table td {
 /*
  *   Forms -------------------------------------------------------------------------------
  */
- 
 p.form {
   width: 100%;
   overflow: hidden;

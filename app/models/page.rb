@@ -15,8 +15,8 @@ class Page < ActiveRecord::Base
   
   validates_presence_of :title, :content
   
-  scope :currently_active, :conditions => { :active => true }
-  scope :archived, :conditions => { :active => false }
+  scope :now_active, :conditions => { :active => true }
+  scope :now_archived, :conditions => { :active => false }
   
   def slug_for_url
     self.url_seed.blank? ? self.title : self.url_seed

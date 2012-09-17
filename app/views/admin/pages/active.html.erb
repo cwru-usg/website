@@ -1,2 +1,16 @@
 <h2>Manage Active Pages</h2>
-<p>This page lists all pages that are currently available on the website.  From here you are able to archive a page, edit its contents, manage urls for the page, and 
+<div id='breadcrumbs'>
+  <%= link_to 'Administration', admin_path %> > <%= link_to 'Manage Pages', admin_pages_path %> > <strong>Manage Active Pages</strong>
+</div>
+<p>This page lists all pages that are currently available on the website.  From here you are able to archive a page, edit its contents, manage urls for the page, and </p>
+
+<table>
+  <tbody>
+    <tr>
+      <th>Title</th>
+      <th>URL</th>
+      <th style="width:45px">Edit</th>
+    </tr>
+    <%= render @pages %>
+  </tbody>
+</table>

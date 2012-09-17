@@ -1,0 +1,16 @@
+<h2>Manage Archived Pages</h2>
+<div id='breadcrumbs'>
+  <%= link_to 'Administration', admin_path %> > <%= link_to 'Manage Pages', admin_pages_path %> > <strong>Manage Archived Pages</strong>
+</div>
+<p></p>
+
+<table>
+  <tbody>
+    <tr>
+      <th>Title</th>
+      <th>URL</th>
+      <th style="width:45px">Edit</th>
+    </tr>
+    <%= render @pages %>
+  </tbody>
+</table>
