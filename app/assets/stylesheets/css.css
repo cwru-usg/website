@@ -139,13 +139,45 @@ body.homepage #header h1 {
   font-style: italic;
   text-decoration: none;
 }
-.slider-wrapper {
+#slider {
   width: 520px;
   height: 279px;
   position: relative;
   top: 55px;
   float: right;
+  box-shadow: 0 0 5px #888;
 }
+
+.rslides {
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  }
+
+.rslides li {
+  position: absolute;
+  display: none;
+  width: 100%;
+  left: 0;
+  top: 0;
+  }
+
+.rslides li:first-child {
+  position: relative;
+  display: block;
+  float: left;
+  }
+
+.rslides img {
+  display: block;
+  height: auto;
+  float: left;
+  width: 100%;
+  border: 0;
+  }
 
 
 /*

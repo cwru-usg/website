@@ -20,9 +20,10 @@
                 %a{:href=>"http://spartanlink.case.edu"} SpartanLink →
           #navigation
             =render "layout_partials/navigation"
-          .slider-wrapper
-            #slider.nivo-slider
-              =image_tag "http://placekitten.com/500/200", :style => "width: 520px; height: 279px;"
+          #slider
+            %ul.rslides
+              %li=image_tag "http://placehold.it/520x279/ff5555/ffffff"
+              %li=image_tag "http://placehold.it/520x279/55ff55/ffffff"
       #container.content
         =yield
       .body-container-push
