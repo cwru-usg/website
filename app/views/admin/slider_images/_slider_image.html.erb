@@ -1,0 +1,8 @@
+<tr>
+  <td rowspan=2><%= image_tag slider_image.image.url(:thumb) %></td>
+  <td><%= slider_image.title %></td>
+  <td rowspan=2><%= link_to 'Edit', edit_admin_slider_image_url(slider_image.id) %><br /><%= link_to 'Delete', admin_slider_image_url(slider_image.id), :method => :Delete %></td>
+</tr>
+<tr>
+	<td><%= link_to slider_image.url, slider_image.url %></td>
+</tr>

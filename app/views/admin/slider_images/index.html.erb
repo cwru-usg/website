@@ -1,0 +1,40 @@
+<h2>Manage Slider Images</h2>
+<div id='breadcrumbs'>
+  <%= link_to 'Administration', admin_path %> > <strong>Manage Slider Images</strong>
+</div>
+<p>The slider image management page allows you to add and remove images from the front page slider.  Images can also have a link that the user will be taken to if they click an image.  Remember, there is a sweet spot for the number of images, so don't go too crazy.</p>
+
+<h3>Current Slider Images</h3>
+<table>
+  <tbody>
+    <tr>
+    	<th>Thumbnail</th>
+      <th>Title and URL</th>
+      <th style="width:45px">Edit</th>
+    </tr>
+    <% if @slider_images.empty? %>
+    	<tr><td colspan=3>No slider images are rotating currently.  Add one quick!</td></tr>
+    <% else %>
+    	<%= render @slider_images %>
+    <% end %>
+  </tbody>
+</table>
+
+<% content_for :right do %>
+  <h3>Create a New Slider Image</h3>
+  <%= form_for [:admin, @new_slider_image] do |f| %>
+    <% if @new_slider_image.errors.any? %>
+      <% @new_slider_image.errors.full_messages.each do |msg| %>
+        <%= msg %>
+      <% end %>
+    <% end %>
+    <p><%= f.text_field :title, :placeholder => 'Title', :style => 'width:210px' %></p>
+    <p><%= f.text_field :url, :placeholder => 'URL', :style => 'width:210px' %></p>
+    <p><%= f.file_field :image %>
+    <p><%= f.submit %></p>
+  <% end %>
+
+  <h3>Managing Slider Images</h3>
+  <p>You can <strong>create new</strong> slider images, <strong>delete</strong> existing images to remove them from the homepage, or <strong>edit</strong> the title or URL.</p>
+  <p>If you would like an image to not be a link, simply leave the URL field blank.</p>
+<% end %>

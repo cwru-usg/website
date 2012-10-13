@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120805212553) do
+ActiveRecord::Schema.define(:version => 20121012205359) do
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
@@ -81,6 +81,15 @@ ActiveRecord::Schema.define(:version => 20120805212553) do
   end
 
   add_index "pages", ["slug"], :name => "index_pages_on_slug", :unique => true
+
+  create_table "slider_images", :force => true do |t|
+    t.string   "title"
+    t.string   "url"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "username",                              :null => false

@@ -22,8 +22,8 @@
             =render "layout_partials/navigation"
           #slider
             %ul.rslides
-              %li=image_tag "http://placehold.it/520x279/ff5555/ffffff"
-              %li=image_tag "http://placehold.it/520x279/55ff55/ffffff"
+              - SliderImage.all.each do |slider_image|
+                %li=link_to image_tag(slider_image.image.url), slider_image.url
       #container.content
         =yield
       .body-container-push

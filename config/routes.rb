@@ -18,6 +18,7 @@ Usg::Application.routes.draw do
     resources :users, :only => [:index, :show, :create, :destroy]
     resources :slugs, :only => [:destroy]
     resources :nav_items
+    resources :slider_images
   end
   
   match ':id', :as => :page, :via => :get, :controller => :pages, :action => :show
